@@ -1,4 +1,4 @@
-# go gorm example project
+# go gorm MYSQL database sample project
 ## Go Version 
 1.21
 ## running code
