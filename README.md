@@ -68,3 +68,9 @@ content-type: application/json
     "telp":"-"
 }
 ```
+
+## Library
+1. https://gorm.io/driver/mysql
+2. https://github.com/gorilla/mux
+3. https://github.com/rs/zerolog
+4. https://gorm.io/gorm
