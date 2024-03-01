@@ -6,7 +6,7 @@
 go run cmd/main.go
 ```
 ## new User
-POST http://localhost:8080/users\
+POST http://localhost:8080/users<br />
 content-type: application/json
 
 ## Payload
@@ -20,7 +20,7 @@ content-type: application/json
 }
 ```
 ## User Update
-PUT http://localhost:8080/users/{id}\
+PUT http://localhost:8080/users/{id}<br />
 content-type: application/json
 
 ```json
@@ -34,13 +34,13 @@ content-type: application/json
 ```
 
 ## User Update
-DELETE http://localhost:8080/users/{id}\
+DELETE http://localhost:8080/users/{id}<br />
 content-type: application/json
 
 
 
 ## User All
-GWT http://localhost:8080/users\
+GET http://localhost:8080/users <br />
 content-type: application/json
 
 ```json
@@ -55,7 +55,7 @@ content-type: application/json
 ```
 
 ## User Find One
-GWT http://localhost:8080/users/{id}\
+GET http://localhost:8080/users/{id}<br />
 content-type: application/json
 
 ```json
