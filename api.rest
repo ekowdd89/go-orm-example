@@ -1,0 +1,11 @@
+DELETE http://localhost:8080/users/995
+content-type: application/json
+
+{
+    "name": "ekowdd",
+    "email": "ekowdd89sx@gmail.com",
+    "password": "$2y$10$lLk/XTh1wfjKAz.RKNsspOhdR6zE/ia58VALrugCsCDjx5dzQ/CFq",
+    "display_name": "ekoxsx",
+    "telp":"087872834699"
+}
+
