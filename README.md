@@ -70,7 +70,7 @@ content-type: application/json
 ```
 
 ## Library
-1. https://gorm.io/driver/mysql
-2. https://github.com/gorilla/mux
-3. https://github.com/rs/zerolog
-4. https://gorm.io/gorm
+- [x] https://gorm.io/driver/mysql
+- [x] https://github.com/gorilla/mux
+- [x] https://github.com/rs/zerolog
+- [x] https://gorm.io/gorm
