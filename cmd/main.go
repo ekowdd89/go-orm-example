@@ -13,6 +13,11 @@ import (
 
 func main() {
 
+	Run()
+}
+
+func Run() {
+
 	repo, _ := repo.NewCrudRepository(&repo.RepoConfigs{
 		DbConfig: repo.DBConfig{
 			Host:   "localhost",
@@ -42,4 +47,5 @@ func main() {
 	}).ListenAndServe(); err != nil {
 		log.Println(err)
 	}
+	
 }
