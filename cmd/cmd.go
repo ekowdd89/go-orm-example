@@ -1,4 +1,4 @@
-package main
+package cmd
 
 import (
 	"log"
@@ -11,22 +11,39 @@ import (
 	"github.com/gorilla/mux"
 )
 
-func main() {
-
-	Run()
+type OptFunc func(*Cmd) error
+type Cmd struct {
+	repo *repo.RepoConfigs
 }
 
-func Run() {
+func WithRepo(repo *repo.RepoConfigs) OptFunc {
+	return func(c *Cmd) error {
 
-	repo, _ := repo.NewCrudRepository(&repo.RepoConfigs{
-		DbConfig: repo.DBConfig{
-			Host:   "localhost",
-			Port:   "3306",
-			User:   "root",
-			Pass:   "",
-			DbName: "mysite",
+		c.repo = repo
+		return nil
+	}
+}
+func New(opts ...OptFunc) (*Cmd, error) {
+	cmd := &Cmd{
+		repo: &repo.RepoConfigs{
+			DbConfig: repo.DBConfig{
+				Host:   "localhost",
+				Port:   "3306",
+				User:   "root",
+				Pass:   "",
+				DbName: "mysite",
+			},
 		},
-	})
+	}
+	for _, opt := range opts {
+		if err := opt(cmd); err != nil {
+			return nil, err
+		}
+	}
+	return cmd, nil
+}
+func (cmd *Cmd) Run() {
+	repo, _ := repo.NewCrudRepository(cmd.repo)
 	defer func() {
 		repo.Close()
 		log.Println("db connection closed")
@@ -47,5 +64,5 @@ func Run() {
 	}).ListenAndServe(); err != nil {
 		log.Println(err)
 	}
-	
+
 }
