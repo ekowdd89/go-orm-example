@@ -42,7 +42,7 @@ func New(opts ...OptFunc) (*Cmd, error) {
 	}
 	return cmd, nil
 }
-func (cmd *Cmd) Run() {
+func (cmd *Cmd) Run(addrs string) {
 	repo, _ := repo.NewCrudRepository(cmd.repo)
 	defer func() {
 		repo.Close()
@@ -60,7 +60,7 @@ func (cmd *Cmd) Run() {
 	router.HandleFunc("/users/{id}", userUsecase.Delete).Methods(http.MethodDelete)
 	if err := server.NewServer(server.ServerConfig{
 		Handler: routes.NewRouter()(router),
-		Address: ":8080",
+		Address: addrs,
 	}).ListenAndServe(); err != nil {
 		log.Println(err)
 	}

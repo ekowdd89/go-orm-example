@@ -6,5 +6,5 @@ import (
 
 func main() {
 	svr, _ := cmd.New()
-	svr.Run()
+	svr.Run(":8080")
 }
